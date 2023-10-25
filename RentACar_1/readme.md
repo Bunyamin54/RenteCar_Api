@@ -6,6 +6,9 @@
 
 --- 
 
+<!-- cp .env-sample .env
+  mkdir logs -->
+
 ### Rent A Car Project 
 
 - Customers;
