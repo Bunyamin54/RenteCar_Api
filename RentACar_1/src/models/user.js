@@ -88,6 +88,6 @@ UserSchema.pre('save', function(next)  {
 
   const isPasswordValidated = RegExp ("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\.@$!%*?&]).{8,}$")
     
-
+  const isEmailValidated = /w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
 })
