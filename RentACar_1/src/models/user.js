@@ -95,7 +95,7 @@ UserSchema.pre('save', function(next)  {
         if (isPasswordValidated)  {
       
           this.password = passwordEncrypt(this.password)
-          next ()
+          next ()  // allow to save 
         } else {
 
             next (new Error('Password not validated.'))
@@ -103,3 +103,5 @@ UserSchema.pre('save', function(next)  {
     }
  
 })
+
+module.exports = mongoose.model('User', UserSchema)
