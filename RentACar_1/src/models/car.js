@@ -1,4 +1,5 @@
 "use strict"
+const { mongo } = require('mongoose')
 /* -------------------------------------------------------
     NODEJS EXPRESS | CLARUSWAY FullStack Team
 ------------------------------------------------------- */
@@ -31,3 +32,56 @@ const { mongoose } = require('../configs/dbConnection')
 }
 /* ------------------------------------------------------- */
 // Car Model:
+
+const carSchema = new mongoose.Schema ({
+  plateNumber :{
+    type : String,
+    trim:true,
+    required: true,
+    unique:true
+  },
+  brand:{
+    type : String,
+    trim:true,
+    required: true,
+  
+  },
+  model:{
+    type : String,
+    trim:true,
+    required: true,
+  
+  },
+  year:{
+    type : String,
+    trim:true,
+    required: true,
+    min :2000
+  },
+  isAutomatic:{
+    type :Boolean,
+    default:false
+  
+  },
+
+  pricePerDay:{
+    type :Number,
+     required:true,
+  
+  },
+
+  isPublish:{
+    type :Boolean,
+     default:ture
+  
+  },
+
+  createdId:{
+    type :mongoose.Schema.Types.ObjectId,
+    ref:'User'
+  },
+  updatedId:{
+    type :mongoose.Schema.Types.ObjectId,
+    ref:'User'
+  },
+})
