@@ -10,6 +10,9 @@ const router = require('express').Router()
 
 router.use('/users', require('./user'))
 
+
+router.use('/cars', require('./car'))
+
 // document:
 router.use('/documents', require('./document'))
 
