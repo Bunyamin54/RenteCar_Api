@@ -8,10 +8,12 @@ const router = require('express').Router()
 
 // URL: /
 
-// document:
 router.use('/users', require('./user'))
 
+// document:
 router.use('/documents', require('./document'))
+
+
 
 /* ------------------------------------------------------- */
 module.exports = router
