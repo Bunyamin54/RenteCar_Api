@@ -86,8 +86,8 @@ const passwordEncrypt = require('../helpers/passwordEncrypt')
 UserSchema.pre('save', function(next)  {
 
 
-  const isPasswordValidated = RegExp ("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\.@$!%*?&]).{8,}$")
+  const isPasswordValidated = RegExp ("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\.@$!%*?&]).{8,}$").test(this.password)
     
-  const isEmailValidated = /w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  const isEmailValidated = /w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)
 
 })
