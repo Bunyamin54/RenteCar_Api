@@ -78,10 +78,12 @@ const carSchema = new mongoose.Schema ({
 
   createdId:{
     type :mongoose.Schema.Types.ObjectId,
-    ref:'User'
+    ref:'User',
+    require:true,
   },
   updatedId:{
     type :mongoose.Schema.Types.ObjectId,
-    ref:'User'
+    ref:'User',
+    require:true,
   },
 })
