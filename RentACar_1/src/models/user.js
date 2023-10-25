@@ -80,3 +80,14 @@ const UserSchema = new  mongoose.Schema({
 } , {collection: 'users', timestamps:true })
 
 /* ------------------------------------------------------- */
+
+
+const passwordEncrypt = require('../helpers/passwordEncrypt')
+UserSchema.pre('save', function(next)  {
+
+
+  const isPasswordValidated = RegExp ("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\.@$!%*?&]).{8,}$")
+    
+
+
+})
