@@ -24,7 +24,7 @@ module.exports = {
 
     create: async (req, res) => {
        
-      
+         // #swagger.ignore = true
 
         const data = await Token.create(req.body)
 
