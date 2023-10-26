@@ -22,6 +22,9 @@ module.exports = {
             `
         */
 
+        // Disallow set admin:
+        req.body.isAdmin = false
+
         const data = await res.getModelList(User)
 
         res.status(200).send({
@@ -64,7 +67,17 @@ module.exports = {
             #swagger.summary = "Get Single User"
         */
 
-        const data = await User.findOne({ _id: req.params.id })
+        // Filters:
+        // if (req.user.isAdmin) {
+        //     let filters = {}
+        // } else {
+        //     let filters = { _id: req.user._id }
+        // }
+        // Only self record:
+        let filters = {}
+        if (!req.user?.isAdmin) filters = { _id: req.user._id }
+
+        const data = await User.findOne({ _id: req.params.id, ...filters })
 
         res.status(200).send({
             error: false,
@@ -88,6 +101,13 @@ module.exports = {
                 }
             }
         */
+
+        // Only self record:
+        let filters = {}
+        if (!req.user?.isAdmin) {
+            filters = { _id: req.user._id }
+            req.body.isAdmin = false
+        }
 
         const data = await User.updateOne({ _id: req.params.id }, req.body, { runValidators: true })
 

@@ -83,6 +83,9 @@ UserSchema.pre(['save', 'updateOne'], function(next) {
     // if process is updateOne, data will receive in "this._update"
     const data = this?._update || this
 
+    // const emailRegExp = new RegExp("^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$")
+    // const isEmailValidated = emailRegExp.test(data.email)
+    // const isEmailValidated = RegExp("^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$").test(data.email)
     const isEmailValidated = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email) // test from "data".
 
     if (isEmailValidated) {
