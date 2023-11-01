@@ -9,7 +9,7 @@
 // https://expressjs.com/en/resources/middleware/multer.html
 const multer = require('multer')
 
-module.exports = multer({
+module.exports = multer({ // middleware
     storage: multer.diskStorage({
         destination: './upload/',
         filename: function(req, file, returnCallback) {
